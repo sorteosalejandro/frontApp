@@ -26,8 +26,14 @@ function Admin() {
     <div className="flex items-center justify-center h-screen bg-orange-100">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-center gap-4 w-[30%]"
+        className="w-[80%] md:w-[30%] flex flex-col items-center gap-4"
       >
+        <img
+          src="logo.png"
+          alt="logo"
+          className="w-24 h-24 mb-5"
+          loading="lazy"
+        />
         <h1 className="text-xl font-bold">Iniciar Sesion Admin</h1>
         <input
           type="text"
