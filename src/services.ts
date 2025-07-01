@@ -19,6 +19,16 @@ export const submitTicket = async (values: any) => {
   }
 };
 
+export const getTopBuyers = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/api/tickets/top-buyers`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener el top de compradores:", error);
+    throw error;
+  }
+};
+
 export const submitCreateRaffle = async (values: RaffleType) => {
   try {
     const response = await axios.post(`${API_URL}/api/raffles`, values, {
@@ -130,9 +140,9 @@ export const getParallelDollar = async () => {
   try {
     const res = await fetch(`${API_URL}/api/dollar`);
 
-    if (!res.ok) { throw new Error("Respuesta no válida del servidor")}
+    if (!res.ok) { throw new Error("Respuesta no válida del servidor") }
     const data = await res.json();
-    return { priceEnparalelovzla: parseFloat(data.priceVez)}
+    return { priceEnparalelovzla: parseFloat(data.priceVez) }
 
   } catch (error) {
     console.error("Error getParallelDollar:", error);

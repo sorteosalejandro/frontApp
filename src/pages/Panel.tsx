@@ -19,6 +19,7 @@ import { MdOutlineForwardToInbox } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import EditEmailModal from "@/components/editEmailModal";
 import EditDollarModal from "@/components/editDollarModal";
+import TopBuyersModal from "@/components/topBuyersModal";
 
 function Panel() {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ function Panel() {
   const [selectedImage, setSelectedImage] = useState("");
   const [resendEmailLoading, setResendEmailLoading] = useState<boolean>(false);
   const [isModalDollarOpen, setIsModalDollarOpen] = useState<boolean>(false);
+  const [isModalBuyersOpen, setIsModalBuyersOpen] = useState<boolean>(false);
   const [currentTikketSelected, setCurrentTikketSelected] = useState<{
     email: string;
     id: string;
@@ -362,16 +364,23 @@ function Panel() {
             className="cursor-pointer text-green-600 inline-block"
           >
             {showSold
-              ? (soldNumber/100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+              ? (soldNumber / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
               : "*****"}{" "}
             %
           </span>
           <button
             onClick={() => setIsModalDollarOpen(true)}
-            className="ml-7 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md transition duration-200"
+            className="m-4 md:m-0 md:ml-6 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md transition duration-200"
           >
             Actualizar Dólar
           </button>
+          <button
+            onClick={() => setIsModalBuyersOpen(true)}
+            className="m-4 md:m-0 md:ml-2 bg-yellow-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md transition duration-200"
+          >
+            👑 Compradores
+          </button>
+
         </p>
       </div>
 
@@ -656,6 +665,7 @@ function Panel() {
         )}
 
         <EditDollarModal isOpen={isModalDollarOpen} onClose={() => setIsModalDollarOpen(false)} />
+        <TopBuyersModal isOpen={isModalBuyersOpen} onClose={() => setIsModalBuyersOpen(false)} />
 
         <div className="flex justify-center items-center gap-4 mt-4 p-5">
           <span className="font-semibold text-gray-300">
