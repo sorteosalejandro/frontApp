@@ -491,7 +491,7 @@ function HomePage() {
                       </div>
                     ) : null}
 
-                    <p className="mt-2 text-white font-bold">
+                    <p className="mt-2 text-black font-bold">
                       Selecciona una cantidad de Tickets
                     </p>
 
@@ -661,7 +661,7 @@ function HomePage() {
                     )}
                   </form>
 
-                  <p className="text-md text-gray-300 font-bold my-4 w-full text-center md:w-1/2">
+                  <p className="text-md text-gray-800 font-bold my-4 w-full text-center md:w-1/2">
                     Recuerde que debe esperar un lapso de 24 a 36 horas
                     aproximadamente mientras nuestro equipo verifica y valida su
                     compra. Los tickets serán enviados a su correo electrónico.
@@ -694,7 +694,7 @@ function HomePage() {
               </div>
             )}
 
-            <div className="flex flex-col gap-5 justify-center border-t border-gray-500 items-center my-6 py-10 w-full md:w-1/2 mx-auto">
+            <div className="flex flex-col gap-5 justify-center border-t border-gray-300 items-center my-6 py-10 w-full md:w-1/2 mx-auto">
               <h3 className="text-lg font-bold">¿No sabes cuales son tus tickets?</h3>
               <button
                 onClick={showVerifiedTickect}
