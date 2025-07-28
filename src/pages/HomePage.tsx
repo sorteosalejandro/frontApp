@@ -438,7 +438,7 @@ function HomePage() {
   return (
     <div>
       {isLoading && (
-        <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-[#1b1b1b] z-50">
           <img
             src="logo.png"
             alt="Cargando..."
@@ -491,7 +491,7 @@ function HomePage() {
                       </div>
                     ) : null}
 
-                    <p className="mt-2 text-black font-bold">
+                    <p className="mt-2 text-gray-300 font-bold">
                       Selecciona una cantidad de Tickets
                     </p>
 
@@ -661,10 +661,10 @@ function HomePage() {
                     )}
                   </form>
 
-                  <p className="text-md text-gray-800 font-bold my-4 w-full text-center md:w-1/2">
+                  <p className="text-md text-gray-300 font-bold my-4 w-full text-center md:w-1/2">
                     Recuerde que debe esperar un lapso de 24 a 36 horas
                     aproximadamente mientras nuestro equipo verifica y valida su
-                    compra. Los tickets serán enviados a su correo electrónico.
+                    compra. Los tickets serán enviados a su correo electrónico. Telefono de soporte <span className="text-orange-600">{PHONE_SUPPORT}</span>
                   </p>
                 </div>
               </>
@@ -694,11 +694,11 @@ function HomePage() {
               </div>
             )}
 
-            <div className="flex flex-col gap-5 justify-center border-t border-gray-300 items-center my-6 py-10 w-full md:w-1/2 mx-auto">
+            <div className="flex flex-col gap-5 justify-center border-t border-gray-500 items-center my-6 py-10 w-full md:w-1/2 mx-auto">
               <h3 className="text-lg font-bold">¿No sabes cuales son tus tickets?</h3>
               <button
                 onClick={showVerifiedTickect}
-                className="px-6 py-3 bg-gray-900 text-white font-semibold rounded-lg shadow-2xl hover:bg-gray-800 hover:shadow-lg transition duration-300 ease-in-out"
+                className="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-2xl hover:bg-gray-800 hover:shadow-lg transition duration-300 ease-in-out"
               >
                 Verifica Tus Tickets
               </button>

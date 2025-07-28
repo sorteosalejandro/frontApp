@@ -23,7 +23,7 @@ function Admin() {
     }
   };
   return (
-    <div className="flex items-center justify-center h-screen bg-orange-100">
+    <div className="flex items-center justify-center h-screen bg-[#1b1b1b]">
       <form
         onSubmit={handleSubmit}
         className="w-[80%] md:w-[30%] flex flex-col items-center gap-4"

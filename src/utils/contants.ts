@@ -1,7 +1,7 @@
 export const banksData = [
   {
     type: "Banco Mercantil",
-    bank: "Banco Mercantil",
+    bank: "Pago Móvil",
     logo: "mercantil.jpg",
     phone: "04128993729",
     indentify: "29981847",
@@ -20,5 +20,5 @@ export const banksData = [
     nameZelle: "Maryerlin Lopez",
   },
 ];
-export const PHONE_SUPPORT = "+58 4144928444";
+export const PHONE_SUPPORT = "+58 414-4928444";
 export const EXCHANGE_RATE = 135;

@@ -332,7 +332,7 @@ function Panel() {
           Listado de Tickets
         </h2>
 
-        <p className="text-sm md:text-base font-semibold text-black text-center md:text-left">
+        <p className="text-sm md:text-base font-semibold text-gray-200 text-center md:text-left">
           Tickets Vendidos:{" "}
           <span
             role="button"
@@ -431,7 +431,7 @@ function Panel() {
               />
               <button
                 onClick={handleSearchTicket}
-                className="bg-gray-900 text-white font-semibold px-4 py-2 rounded w-full max-w-[120px]"
+                className="bg-black text-white font-semibold px-4 py-2 rounded w-full max-w-[120px]"
               >
                 buscar
               </button>
