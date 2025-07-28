@@ -24,7 +24,7 @@ function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const [preview, setPreview] = useState<string | null>(null);
-
+  const whatsappUrl = `https://wa.me/${PHONE_SUPPORT.replace(/\D/g, '')}`;
   const [raffleActually, setRaffleActually] = useState<RaffleType>({
     name: "",
     description: "",
@@ -62,6 +62,9 @@ function HomePage() {
       try {
         const responseRaffle = await getRaffle();
         setRaffleActually(responseRaffle[0]);
+        let minValue = parseInt(responseRaffle[0]?.minValue)
+        formik.setFieldValue("numberTickets", minValue);
+        updateTotal(minValue);
       } catch (error) {
         console.error("Error al cargar datos:", error);
       } finally {
@@ -71,6 +74,10 @@ function HomePage() {
 
     fetchGetRaffle();
   }, []);
+
+  useEffect(() => {
+    updateTotal(raffleActually.minValue)
+  }, [raffleActually])
 
   const updateTotal = (quantity: number) => {
     const totalUSD = quantity * parseFloat(raffleActually.ticketPrice);
@@ -300,7 +307,21 @@ function HomePage() {
           </p>
           <p style="margin: 0;">
             <strong>CONTÁCTANOS POR EL TLF DE SOPORTE:</strong><br/>
-            ${PHONE_SUPPORT}
+            <a
+              href=${whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style="margin-top: 15px;display: inline-flex; align-items: center; justify-content: center; background-color: #22c55e; border-radius: 9999px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 0.25rem 0.75rem; margin-left: 0.5rem; transition: transform 0.2s;"
+              onmouseover="this.style.transform='scale(1.05)'"
+              onmouseout="this.style.transform='scale(1)'"
+            >
+              <img
+                src="https://img.icons8.com/color/48/whatsapp--v1.png"
+                alt="WhatsApp"
+                style="width: 1.5rem; height: 1.5rem;"
+              />
+              <span style="color: white; margin-left: 0.25rem; margin-right: 0.25rem;">${PHONE_SUPPORT}</span>
+            </a>
           </p>
         </div>
 
@@ -662,10 +683,27 @@ function HomePage() {
                   </form>
 
                   <p className="text-md text-gray-300 font-bold my-4 w-full text-center md:w-1/2">
-                    Recuerde que debe esperar un lapso de 24 a 36 horas
-                    aproximadamente mientras nuestro equipo verifica y valida su
-                    compra. Los tickets serán enviados a su correo electrónico. Telefono de soporte <span className="text-orange-600">{PHONE_SUPPORT}</span>
+                    Recuerde que debe esperar un lapso de 24 a 36 horas aproximadamente mientras nuestro equipo verifica y valida su compra.
+                    Los tickets serán enviados a su correo electrónico.
+                    <br />
+                    <div className="flex items-center justify-center mt-3 gap-3">
+                      Teléfono de soporte:
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 inline-flex items-center justify-center bg-green-500 rounded-full shadow-lg p-1 ml-2 hover:scale-105 transition-transform"
+                      >
+                        <img
+                          className="w-6 h-6 md:w-7 md:h-7"
+                          src="https://img.icons8.com/color/48/whatsapp--v1.png"
+                          alt="WhatsApp"
+                        />
+                        <span className="text-white mx-1">{PHONE_SUPPORT}</span>
+                      </a>
+                    </div>
                   </p>
+
                 </div>
               </>
             ) : (
