@@ -722,7 +722,7 @@ function HomePage() {
                   historias en Instagram.
                 </p>
                 <a
-                  href="https://www.instagram.com/alej0_0_0_0/profilecard/?igsh=ZzVkYWt3cTJpYmow"
+                  href="https://www.instagram.com/alejandromedina123_/profilecard/?igsh=ZzVkYWt3cTJpYmow"
                   target="_blank"
                   rel="noreferrer"
                   className="text-orange-600 text-lg underline font-semibold hover:text-red-700 transition duration-300"

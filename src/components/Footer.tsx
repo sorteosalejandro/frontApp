@@ -6,7 +6,7 @@ const Footer = () => {
 
       <div className="flex justify-center gap-4 my-3">
         <a
-          href="https://www.facebook.com/share/1CiBXgCh4w/?mibextid=wwXIfr"
+          href="https://www.facebook.com/share/15xwdbskSk/?mibextid=wwXIfr"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-blue-600 text-white rounded-full p-3"
@@ -14,7 +14,7 @@ const Footer = () => {
           <FaFacebookF size={20} />
         </a>
         <a
-          href="https://www.instagram.com/alej0_0_0_0/profilecard/?igsh=ZzVkYWt3cTJpYmow"
+          href="https://www.instagram.com/alejandromedina123_/profilecard/?igsh=ZzVkYWt3cTJpYmow"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-red-600 text-white rounded-full p-3"
@@ -22,7 +22,7 @@ const Footer = () => {
           <FaInstagram size={20} />
         </a>
         <a
-          href="https://www.tiktok.com/@alej0_06?_t=ZM-8xb91wAXHB0&_r=1"
+          href="https://www.tiktok.com/@rifasalejandromedina?_t=ZM-8yPdjrxYTO1&_r=1"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-black text-white rounded-full p-3"
