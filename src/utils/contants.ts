@@ -19,6 +19,20 @@ export const banksData = [
     email: "8327564119",
     nameZelle: "Maryerlin Lopez",
   },
+  {
+    type: "nequi",
+    bank: "Nequi",
+    logo: "nequiLogo.avif",
+    phone: "+57 316 6518483",
+    nameNequi: "Luz María López"
+  },
+  {
+    type: "Zinli",
+    bank: "Zinli",
+    logo: "zinliLogo.webp",
+    email: "daylopez2202@gmail.com",
+    nameZinli: "Alejandro Medina"
+  },
 ];
 export const PHONE_SUPPORT = "+58 414-4928444";
 export const EXCHANGE_RATE = 135;
