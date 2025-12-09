@@ -22,7 +22,7 @@ const Footer = () => {
           <FaInstagram size={20} />
         </a>
         <a
-          href="https://www.tiktok.com/@rifasalejandromedina?_t=ZM-8yPdjrxYTO1&_r=1"
+          href="https://www.tiktok.com/@alejandromedina123_?_r=1&_t=ZM-925aHZpWA3P"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-black text-white rounded-full p-3"
