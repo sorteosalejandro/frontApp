@@ -53,6 +53,7 @@ function Panel() {
   const [paymentMethod, setPaymentMethod] = useState<string | undefined>(
     undefined,
   );
+  const orderToSend = filter == "pending" ? "asc" : orderTickets;
 
   const handleOpenModal = (image: string) => {
     setSelectedImage(image);
@@ -63,27 +64,25 @@ function Panel() {
     fetchAuth(navigate);
   }, [navigate]);
 
+  const fetchGetTikkets = async () => {
+    setIsLoadingPagination(true);
+    const responseTikkets: TicketType[] = await getTickets(
+      filter,
+      paymentMethod,
+      pageTickets,
+      orderToSend,
+    );
+
+    if (responseTikkets) {
+      setTickets((prev) => [...prev, ...responseTikkets]);
+      setIsLastPage(responseTikkets.length < numberToShow);
+    }
+
+    setIsLoadingPagination(false);
+    setIsChangingTypes(false);
+  };
+
   useEffect(() => {
-    const orderToSend = filter == "pending" ? "asc" : orderTickets;
-
-    const fetchGetTikkets = async () => {
-      setIsLoadingPagination(true);
-      const responseTikkets: TicketType[] = await getTickets(
-        filter,
-        paymentMethod,
-        pageTickets,
-        orderToSend,
-      );
-
-      if (responseTikkets) {
-        setTickets((prev) => [...prev, ...responseTikkets]);
-        setIsLastPage(responseTikkets.length < numberToShow);
-      }
-
-      setIsLoadingPagination(false);
-      setIsChangingTypes(false);
-    };
-
     fetchGetTikkets();
   }, [filter, paymentMethod, pageTickets, orderTickets]);
 
@@ -237,18 +236,9 @@ function Panel() {
     }
   };
 
-  const handleEmailUpdated = (
-    id: string,
-    newEmail: string,
-    newPhone: string,
-  ) => {
-    setTickets((prevTickets) =>
-      prevTickets.map((ticket) =>
-        ticket._id === id
-          ? { ...ticket, email: newEmail, phone: newPhone }
-          : ticket,
-      ),
-    );
+ const handleEmailUpdated = () => {
+    setTickets([])
+    fetchGetTikkets()
   };
 
   const handleSearchTicket = async () => {
