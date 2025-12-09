@@ -19,8 +19,8 @@ import { PHONE_SUPPORT } from "@/utils/contants";
 function HomePage() {
   const inputRef = useRef<HTMLInputElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const MAX_VALUE = 100;
-  const predefinedValues = [2, 5, 10, 20, 50, 100];
+  const MAX_VALUE = 500;
+  const predefinedValues = [2, 5, 10, 20, 100, 500];
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(true);
   const [preview, setPreview] = useState<string | null>(null);
