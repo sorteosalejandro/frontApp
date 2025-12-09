@@ -19,9 +19,18 @@ export const submitTicket = async (values: any) => {
   }
 };
 
-export const getTopBuyers = async () => {
+export const getTopBuyers = async (
+  mode: "today" | "yesterday" | "total" | "custom" = "total",
+  startDate?: string,
+  endDate?: string
+) => {
   try {
-    const response = await axios.get(`${API_URL}/api/tickets/top-buyers`);
+    let url = `${API_URL}/api/tickets/top-buyers/${mode}`;
+    if (mode === "custom" && startDate && endDate) {
+      url += `?startDate=${startDate}&endDate=${endDate}`;
+    }
+
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error("Error al obtener el top de compradores:", error);
@@ -188,10 +197,12 @@ export const resendEmail = async (id: string) => {
   }
 };
 
-export const updatedEmail = async (
+export const updatedUser = async (
   id: string,
   newEmail: string,
   newPhone: string,
+  numberTickets: number,
+  paymentMethod: string
 ) => {
   try {
     const { data } = await axios.put(
@@ -199,6 +210,8 @@ export const updatedEmail = async (
       {
         newEmail,
         newPhone,
+        numberTickets,
+        paymentMethod
       },
     );
     return data;

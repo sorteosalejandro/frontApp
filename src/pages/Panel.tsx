@@ -42,7 +42,9 @@ function Panel() {
     email: string;
     id: string;
     phone: string;
-  }>({ email: "", id: "", phone: "" });
+    numberTickets: number;
+    paymentMethod: string;
+  }>({ email: "", id: "", phone: "", numberTickets: 0, paymentMethod: "" });
   const [showSold, setShowSold] = useState<boolean>(true);
   const [pageTickets, setPageTickets] = useState<number>(1);
   const [isLastPage, setIsLastPage] = useState<boolean>(false);
@@ -553,6 +555,8 @@ function Panel() {
                             email: ticket.email,
                             id: ticket._id,
                             phone: ticket.phone,
+                            numberTickets: ticket.numberTickets,
+                            paymentMethod: ticket.paymentMethod,
                           });
                         }}
                         size={20}
