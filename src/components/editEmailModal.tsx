@@ -157,9 +157,9 @@ const EditEmailModal: React.FC<EditEmailProps> = ({
               required
             >
               <option value="">Selecciona método de pago</option>
-              <option value="BDV">BDV</option>
-              <option value="zelle">Zelle</option>
               <option value="Banco Mercantil">Mercantil</option>
+              <option value="zelle">Zelle</option>
+              <option value="binance">Binance</option>
             </select>
           </div>
 
